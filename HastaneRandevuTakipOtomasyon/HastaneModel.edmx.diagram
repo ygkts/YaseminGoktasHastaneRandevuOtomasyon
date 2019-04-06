@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4dde128c0d344212a0dc8c3c9e75d838" Name="Diagram1">
+        <EntityTypeShape EntityType="HastaneTakipOtomasyonYGModel.Bolum" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneTakipOtomasyonYGModel.Doktor" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneTakipOtomasyonYGModel.Hasta" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneTakipOtomasyonYGModel.Hemsire" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneTakipOtomasyonYGModel.Memur" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneTakipOtomasyonYGModel.Randevu" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneTakipOtomasyonYGModel.RandevuSaat" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="HastaneTakipOtomasyonYGModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="HastaneTakipOtomasyonYGModel.FK_Doktor_Bolum" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneTakipOtomasyonYGModel.FK_Hemsire_Bolum" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneTakipOtomasyonYGModel.FK_Randevu_Doktor" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneTakipOtomasyonYGModel.FK_Randevu_Hasta" ManuallyRouted="false" />
+        <AssociationConnector Association="HastaneTakipOtomasyonYGModel.FK_Randevu_RandevuSaat" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

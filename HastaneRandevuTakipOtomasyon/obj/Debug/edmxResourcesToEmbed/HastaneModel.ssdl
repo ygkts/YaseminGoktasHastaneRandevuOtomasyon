@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HastaneTakipOtomasyonYGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bolum">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BolumAd" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Doktor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="DTarih" Type="date" />
+    <Property Name="DYer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cinsiyet" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="200" />
+    <Property Name="Telefon" Type="nchar" MaxLength="11" />
+    <Property Name="BolumID" Type="int" />
+    <Property Name="BolumAd" Type="nvarchar" MaxLength="100" />
+    <Property Name="Resim" Type="image" />
+  </EntityType>
+  <EntityType Name="Hasta">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TC" Type="nchar" MaxLength="11" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="DTarih" Type="date" />
+    <Property Name="DYeri" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cinsiyet" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="200" />
+    <Property Name="Telefon" Type="nchar" MaxLength="11" />
+    <Property Name="SosyalGuvenlik" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Hemsire">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="DTarih" Type="date" />
+    <Property Name="DYer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cinsiyet" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="200" />
+    <Property Name="Telefon" Type="nchar" MaxLength="11" />
+    <Property Name="BolumID" Type="int" />
+    <Property Name="BolumAd" Type="nvarchar" MaxLength="100" />
+    <Property Name="Resim" Type="image" />
+  </EntityType>
+  <EntityType Name="Memur">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TC" Type="nchar" MaxLength="11" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="DTarih" Type="date" />
+    <Property Name="DYeri" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cinsiyet" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="200" />
+    <Property Name="Telefon" Type="nchar" MaxLength="11" />
+    <Property Name="Resim" Type="image" />
+    <Property Name="EMail" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sifre" Type="nchar" MaxLength="10" />
+    <Property Name="YetkiDuzeyi" Type="int" />
+  </EntityType>
+  <EntityType Name="Randevu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HastaID" Type="int" />
+    <Property Name="HastaTC" Type="nchar" MaxLength="11" />
+    <Property Name="HastaAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="HastaSoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoktorID" Type="int" />
+    <Property Name="DoktorAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoktorSoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="BolumID" Type="int" />
+    <Property Name="BolumAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="IslemTarih" Type="date" />
+    <Property Name="SaatID" Type="int" />
+    <Property Name="RandevuSaat" Type="time" Precision="5" />
+  </EntityType>
+  <EntityType Name="RandevuSaat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RandevuSaat" Type="time" Precision="5" Nullable="false" />
+    <Property Name="Durum" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Doktor_Bolum">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Doktor" Type="Self.Doktor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Doktor">
+        <PropertyRef Name="BolumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hemsire_Bolum">
+    <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Hemsire" Type="Self.Hemsire" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Hemsire">
+        <PropertyRef Name="BolumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Randevu_Doktor">
+    <End Role="Doktor" Type="Self.Doktor" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doktor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="DoktorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Randevu_Hasta">
+    <End Role="Hasta" Type="Self.Hasta" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hasta">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="HastaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Randevu_RandevuSaat">
+    <End Role="RandevuSaat" Type="Self.RandevuSaat" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Randevu" Type="Self.Randevu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RandevuSaat">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Randevu">
+        <PropertyRef Name="SaatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HastaneTakipOtomasyonYGModelStoreContainer">
+    <EntitySet Name="Bolum" EntityType="Self.Bolum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doktor" EntityType="Self.Doktor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hasta" EntityType="Self.Hasta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hemsire" EntityType="Self.Hemsire" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Memur" EntityType="Self.Memur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Randevu" EntityType="Self.Randevu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RandevuSaat" EntityType="Self.RandevuSaat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Doktor_Bolum" Association="Self.FK_Doktor_Bolum">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Doktor" EntitySet="Doktor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hemsire_Bolum" Association="Self.FK_Hemsire_Bolum">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Hemsire" EntitySet="Hemsire" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Randevu_Doktor" Association="Self.FK_Randevu_Doktor">
+      <End Role="Doktor" EntitySet="Doktor" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Randevu_Hasta" Association="Self.FK_Randevu_Hasta">
+      <End Role="Hasta" EntitySet="Hasta" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Randevu_RandevuSaat" Association="Self.FK_Randevu_RandevuSaat">
+      <End Role="RandevuSaat" EntitySet="RandevuSaat" />
+      <End Role="Randevu" EntitySet="Randevu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
